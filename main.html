@@ -1,0 +1,41 @@
+<table width="100%">
+  <tbody>
+    <tr>
+      <td valign="top" width="50%">
+        <div>
+          Autoseach in {{countdown}}
+          <form name="searchUser" ng-submit="search()">
+            user:
+            <input type="search" required="" placeholder="Username to find" ng-model="username" />
+            <input type="submit" value="Search" />
+          </form>
+        </div>
+      </td>
+      <td valign="top" align="center" width="50%">
+        <div>
+          <form name="searchXmenMovie" ng-submit="searchXmen()">
+            Marvel search:
+            <input type="search" required="" placeholder="type hero name" ng-model="usernameXmen" />
+            <input type="submit" value="Search" />
+          </form>
+        </div>
+        <h3>{{xMenError}}</h3>
+        <div ng-show="hero">
+          <div>
+            <b>Name: </b> {{hero.name}}
+          </div>
+          <img ng-src="{{heroImageUrl}}" width="120" title="{{hero.name}}" />
+          <div style="text-align:left">
+            <b>Comics:</b> {{hero.comics.available}}
+          </div>
+          <div style="text-align:left">
+            <b>Series:</b> {{hero.series.available}}
+          </div>
+          <div style="text-align:justify">
+            <b>Description: </b> {{hero.description}}
+          </div>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>

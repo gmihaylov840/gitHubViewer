@@ -1,0 +1,29 @@
+{{error}}
+<div>User Name: {{user.name}}</div>
+<div>User Location: {{user.location}}</div>
+<div><img ng-src="{{user.avatar_url}}" width="80" title="{{user.name}}" /></div>
+
+
+sort repos by:
+<select ng-model="repoSortOrder">
+  <option value="+name">Name</option>
+  <option value="-stargazers_count">Stars</option>
+  <option value="+language">Language</option>
+</select>
+<a href="#/main">Back to search page</a>
+<table border="1">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Stars</th>
+      <th>Language</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="repo in repos | orderBy:repoSortOrder">
+      <td> <a href="#/repo/{{user.login}}/{{repo.name}}">{{repo.name}}</a></td>
+      <td>{{repo.stargazers_count | number}}</td>
+      <td>{{repo.language}}</td>
+    </tr>
+  </tbody>
+</table>
